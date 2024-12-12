@@ -32,7 +32,7 @@ const PORT = process.env.PORT || 8080;
 /*--deployment---*/
 const __dirname1 = path.resolve();
 
-if (process.env.DEV_MODE === "development") {
+if (process.env.NODE_ENV==="production") {
   
   app.use(express.static(path.join(__dirname, './client/build')));
 
@@ -53,7 +53,7 @@ app.get('*', (req, res) => {
 //listen
 app.listen(PORT, () => {
   console.log(
-    `Node Server Running In ${process.env.DEV_MODE} ModeOn Port ${process.env.PORT}`
+    `Node Server Running In ${process.env.NODE_ENV} ModeOn Port ${process.env.PORT}`
       .bgBlue.white
   );
 });
